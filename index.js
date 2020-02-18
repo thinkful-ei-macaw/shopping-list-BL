@@ -1,3 +1,5 @@
+'use strict';
+
 const store = {
   items: [
     { id: cuid(), name: 'apples', checked: false },
@@ -42,7 +44,7 @@ const render = function () {
   // Set up a copy of the store's items in a local 
   // variable 'items' that we will reassign to a new
   // version if any filtering of the list occurs.
-  let items = [...store.items];
+  let items = [store.items];
   // If the `hideCheckedItems` property is true, 
   // then we want to reassign filteredItems to a 
   // version where ONLY items with a "checked" 
@@ -103,7 +105,7 @@ const deleteListItem = function (id) {
   // As with 'addItemToShoppingLIst', this 
   // function also has the side effect of
   // mutating the global store value.
-  //
+  
   // First we find the index of the item with 
   // the specified id using the native
   // Array.prototype.findIndex() method. 
@@ -115,7 +117,8 @@ const deleteListItem = function (id) {
 };
 
 const handleDeleteItemClicked = function () {
-  // Like in `handleItemCheckClicked`, 
+  // Like in `handleItemCheckClicked`,
+
   // we use event delegation.
   $('.js-shopping-list').on('click', '.js-item-delete', event => {
     // Get the index of the item in store.items.
